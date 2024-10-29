@@ -8,9 +8,9 @@ export const generateToken=(id,res)=>{
               res.cookie("job-token",token,{
                     httpOnly:true,
                     secure:process.env.NODE_ENV === 'Production',
-                    sameSite: "none",
+                    sameSite: "strict",
 		     maxAge: 7 * 24 * 60 * 60 * 1000,
-                    path: '/'
+                    
               })
 
               
