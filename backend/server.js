@@ -22,6 +22,8 @@ const app = express();
 const __dirname = path.resolve();
 
 
+
+
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
@@ -148,10 +150,10 @@ app.put('/api/v1/uploadResume', protectRoute, multerStorage.single('resume'), as
 });
 
 
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 app.get("*", (req, res) => {
-	res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+	res.sendFile(path.join(__dirname, "../", "frontend", "dist", "index.html"));
 });
 
 
