@@ -19,7 +19,7 @@ import { Server } from 'socket.io'; // For WebSockets
 
 // Initialize Express app
 const app = express();
-const __dirname=path.resolve()
+const __dirname = path.resolve();
 
 
 const server = http.createServer(app);
@@ -85,12 +85,7 @@ const io = new Server(server, {
 // });
 
 
-
-      app.use(express.static(path.join(__dirname, '/frontend/dist')))
-      app.get("*",(req,res)=>{
-            res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html")) 
-      })
-
+    
 
 // Attach io instance to the app
 app.io = io;
@@ -153,6 +148,11 @@ app.put('/api/v1/uploadResume', protectRoute, multerStorage.single('resume'), as
 });
 
 
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
 
 
 
