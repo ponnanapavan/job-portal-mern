@@ -19,6 +19,7 @@ import { Server } from 'socket.io'; // For WebSockets
 
 // Initialize Express app
 const app = express();
+const __dirname=path.resolve()
 
 
 const server = http.createServer(app);
