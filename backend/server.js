@@ -27,7 +27,7 @@ const __dirname = path.resolve();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "https://mern-jobportal-1.onrender.com", // Replace '*' with your frontend origin in production
+        origin: "*", // Replace '*' with your frontend origin in production
        
     }
 });
